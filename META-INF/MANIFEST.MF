@@ -1,3 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: JoshuaAdventureGame11
-
+Main-Class: engine.JoshuaAdventureGame12
