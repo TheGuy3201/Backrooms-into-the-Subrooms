@@ -11,21 +11,42 @@ import java.awt.Graphics2D;
 
 public class GameLevels {
    final private AdventureGameConstructor game;
+   private final LevelLoader levelLoader;
    
    public int numberOfDestructs = 0; //goes upto 4
    int numberOfShots = 0; //goes upto 2
 
    public GameLevels(AdventureGameConstructor game) {
       this.game = game;
+      this.levelLoader = new LevelLoader();
+   }
+   
+   // Load a level by ID from JSON
+   public void loadLevelById(int id) {
+      Level level = levelLoader.getLevelById(id);
+      if (level != null) {
+         game.clearBuffer();
+         Graphics2D b = game.buffer.createGraphics();
+         oW.addPicture(b, level.getFilePath(), game.picWidth, game.HEIGHT, 0, 22);
+         game.drawScreen();
+         b.dispose();
+         storyTextArea.setText("Now at: " + level.getName());
+      } else {
+         System.err.println("Level with ID " + id + " not found");
+      }
+   }
+   
+   // Get level info without loading
+   public Level getLevel(int id) {
+      return levelLoader.getLevelById(id);
    }
    
     //all LEVEL STUFF BELOW
    public void badEnding()
    {
       game.clearBuffer();
-      game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "friend house.jpeg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/friend house.jpg", game.picWidth, game.HEIGHT, 0,22);
       game.drawScreen();
       b.dispose();
       storyTextArea.setText("You are free, and able to live your life. Still haunted by the memories, you get flashbacks. Only to one day learn, they weren't flashbacks, but instead the future that would soon unfold. \n \nThe world would be consumed by the ever growing Observer, and the end of days would near");
@@ -37,9 +58,8 @@ public class GameLevels {
    {
       aC.playSFX("MainMusic.wav", 1.0f);
       game.clearBuffer();
-      game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "friend house.jpeg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/friend house.jpg", game.picWidth, game.HEIGHT, 0,22);
       game.drawScreen();
       b.dispose();
       storyTextArea.setText("You are about to go to your friends house, you are really excited. You begin walking up to the house, only to -");
@@ -50,9 +70,8 @@ public class GameLevels {
    public void level0_ENT()
    {
       game.clearBuffer();
-      game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0.jpg", game.picWidth, game.HEIGHT, 0,22);
       game.drawScreen();
       b.dispose();
       if(iA.haveItem("Sound Weapon"))
@@ -72,9 +91,8 @@ public class GameLevels {
    {
       iA.usedItem("Sound Weapon", "You used the sound weapon to open up a secret room");
       game.clearBuffer();
-      game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "commodoreFish.jpg", game.picWidth/2, game.HEIGHT/2, 120,100);
+      oW.addPicture(b, "levels/commodoreFish.jpg", game.picWidth/2, game.HEIGHT/2, 120,100);
       aC.playSFX("PeeOnFloor.wav", 2f);
       storyTextArea.setText(storyTextArea.getText()+"\n \n \n \nYou feel yourself beginning to laugh, 5 days later you continue to laugh, even after your body decaying you continue to laugh, THE FISH HAS CAUGHT YOU, AND YOU ARE NOW DEAD.");
       game.exit(b, "Welcome to the endless prison of laughter");
@@ -84,9 +102,8 @@ public class GameLevels {
    public void level0_hallway1()
    {
       game.clearBuffer();
-      game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall1.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall1.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("All you see is more yellow wallpaper and the buzzing lights still irritating the hell out of you");
       if(!(iA.haveItem("Scissors")))
       {
@@ -106,7 +123,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall2.2.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall2.2.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("You can see the area is blurry, but two seconds ago it was almost crystal clear. You can feel your sanity draining 'Is there anyone here... anyone left?' \n \n Unknown Voice: Which way shall WE go");
       String[] newItems = {" ", "Go down Left hall", "Go down Right hall","Walk back"};
       game.setChoices(newItems);
@@ -117,7 +134,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall2.4.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall2.4.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("You can't find another path you try to go back but can't THE ENTRANCE IS GONE! \n \n \n \nCOME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US COME TO US");
       if(iA.haveItem("Sound Weapon"))
       {
@@ -137,7 +154,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall2.6.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall2.6.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("Unknown Creature: This place can be your tomb.... and most likely will,\n \n \nThe Observer: SILENCE I AM THE ONE WHO SPEAKS TO THE INTRU- GUESTS, NOT YOU \n \n \nWho or what was that, you feel cold, and like someone is watching from all directions. ");
       String[] newItems = {" ","Go through the narrow hallway","Go through the far hallway","Go through the way you came"};
       game.setChoices(newItems);
@@ -148,11 +165,11 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall2.8.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall2.8.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: I am sorry for yelling - \n \n Random Raspy voice: WE ARE THE LOST, HUNTED, AND A COMBINE OF ABOMINATIONS ALL MUST JOIN US, INCLUDI- \n \n \nThe Observer: at you, these creatures want all the power we have, but we do not give what is not to be theirs, and it shall stay with us. \n \n \nWhat is that on the floor, is that a satellite dish");
       if(!(iA.haveItem("Sound Weapon")))
       {
-         oW.addPicture(b, "sound weapon.png", game.picWidth/4, game.HEIGHT/4, 20,500);
+         oW.addPicture(b, "levels/sound weapon.jpg", game.picWidth/4, game.HEIGHT/4, 20,500);
          String[] newItems = {" ","Grab the mini satelite dish","Go back down the hallway"};
          game.setChoices(newItems);
       }
@@ -170,7 +187,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall2.9.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall2.9.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("You have found one of our pets, so please let it consume you, allow all of your cell, all your life, be used to aid your journey in exiting this prison");
       String[] newItems = {" ","Give up LET US CONJOIN IN ONE WE ARE THE UNITED DEMONS OF THE SUBROOMS"};
       game.setChoices(newItems);
@@ -181,7 +198,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall2.jpeg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/backroomslvl0hall2.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("My heart is racing, maybe Matteo is here. He could help. You call his name twice. All you get back is the echo's of your footsteps. 'CoME ViSIT US to BE FREE FROM PAIN'");
       String[] newItems = {" ","Go Forward","go back"};
       game.setChoices(newItems);
@@ -192,7 +209,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall3.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall3.jpg", game.picWidth, game.HEIGHT, 0,22);
       
       if(iA.haveItem("Paper"))
       {
@@ -213,7 +230,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Old Paper_Backrooms.png", (game.picWidth/2)+70, game.HEIGHT, 200, 22);
+      oW.addPicture(b, "levels/Old Paper_Backrooms.jpg", (game.picWidth/2)+70, game.HEIGHT, 200, 22);
       storyTextArea.setText("\n You wonder who killed this knight, was it a hero or villain and where is it's body?");
       oW.text(b, new Color(95,57,57),"Comic Sans MS", Font.BOLD,"Here lies the DeMO- the Blue Knight,",24,210,300);
       oW.text(b, new Color(95,57,57),"Comic Sans MS", Font.BOLD,"he who has slain, has been slain and",24,210,330);
@@ -226,7 +243,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall4.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall4.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("You notice the way the area looks, is changing from a clear area to what almost looks like a low quality image... you cant find an exit but an idea randomly pops in your head to cut a hole in one of the pillars");
       if(iA.haveItem("Scissors"))
       {
@@ -245,7 +262,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl0hall4.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl0hall4.jpg", game.picWidth, game.HEIGHT, 0,22);
       oW.object('r',b, Color.white,320,200,60,200,0);
       storyTextArea.setText("You cut a large hole in the mid right pillar, big enough for you to fit through, whats odd though is the hole is a different size then what you cut, in fact it's not even attached to the pillar at all!");
       String[] newItems = {" ","Go through it(you wont be able to return back here)","Go to previous area"};
@@ -259,7 +276,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall_ENT.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall_ENT.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: Welcome to level 2, if you want to know where level 1 is, well... we consumed it when we cloned our old home...");
       String[] newItems = {" ","Continue forward", "Continue backward"};
       game.setChoices(newItems);
@@ -271,7 +288,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall1.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall1.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("It's almost a dead end but there is a ladder, but there is a trap door in the way, damnit");
       if(iA.haveItem("Bobby Pin"))
       {
@@ -291,7 +308,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall2.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall2.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: We are pleased to have you here, you are going to help us consume this level and grow in power. \n \n \nYou: Ok listen here Mr.Observer, I dont know what you want this thing for, but I will find a way to stop you and escape");
       String[] newItems = {" ","Keep on going forward", "Go back to where you teleported"};
       game.setChoices(newItems);
@@ -303,7 +320,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall3.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall3.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: I showed you mercy, treated you as a guest and THIS IS WHAT YOU GIVE ME \n \n \nYou: You litterally said your going to eat me or something.");
       String[] newItems = {" ","YOU CAN ONLY GO ONE WAY?!", "Return to where you were last"};
       game.setChoices(newItems);
@@ -316,7 +333,7 @@ public class GameLevels {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
       int randNum = game.rG.nextInt(100);
-      oW.addPicture(b, "Backroomslvl2_hall4.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall4.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: I am sorry I had frightened you, MY INTENTION WAS TO TORMENT YOU WITH FEAR AND ALLOW THE FEAR MISGUIDE YOU \n \n \nYou: If that is your plan, than your failing, cause I am not afraid of you!! \n \n \nThe Observer: Well then my plan is going perfectly...");
       if(randNum >= 42 && randNum <=63)
       {
@@ -336,7 +353,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall5.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall5.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("You found a key attached to the pipe, you tried ripping it off the wall but couldn't, maybe if you had some sort of tool to break the metal wire. \n \n \nThe Observer: Go through that door so we can finally meet... and become one.");
       if(iA.haveItem("Scissors"))
       {
@@ -369,7 +386,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall6.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall6.jpg", game.picWidth, game.HEIGHT, 0,22);
       game.drawScreen();
       b.dispose();
       if(iA.haveItem("Bolt Cutters"))
@@ -390,7 +407,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall7.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall7.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("Your in a narrow hall, and it is really hot. You think it's the pipes overheating \n \n \nYou: Mr. Observer, if you think the heat will kill me, then you got another thing comin, and it isn't in your favour.");
       String[] newItems = {" ","Tap the pipes to see how hot they are", "Keep on going down this heated hallway","Go back to where you think is safe"};
       game.setChoices(newItems);
@@ -402,7 +419,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl2_hall7.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl2_hall7.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: Thanks to you, I can now consume this level, and you have fallen where I began... where we will begin. I will admit though... you survived far longer than I expected.");
       String[] newItems = {" ","Become his rival", "DIE DIE DIE DIE DIE DIE DIE DIE DIE DIE","Challenge Him."};
       game.setChoices(newItems);
@@ -415,7 +432,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl4_ENT.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl4_ENT.jpg", game.picWidth, game.HEIGHT, 0,22);
       cC.level4 = true;
       storyTextArea.setText("The Observer: Welc0me to your l@s& St@n^d, th!s l&vel wi)l be y@up gr@>e nO(h!ng c&n s%ve YOU KNOW MY PETS OWN THIS LEVEL AND SO DOES MY COnSumti&n, ! w!(ll) a(d)d y(ou) to MY COLLECTION OF PET F@@D \n \n \nYou: 1 28 643943 83 92160 %$%& I WANT TO SPEAK, oh im speaking, what are you doing to me!? \n \n \nThe Observer: I am consuming this place, and because of this, I am going to grow in power all thanks to my former master.\n \n \n$#^%# : I have opened two doors to your left and right, they can take you back to the other levels before you continue forward, just know once you exit this inbetween levels area, you wont be able to come back.");
       String[] newItems = {" ","Go down left door(level 0)","Go down right door(level 2)","Go down the door behind you","Proceed into FR33D0M"};
@@ -428,7 +445,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl4_hallway1.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl4_hallway1.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: Incr3di9le yo@ m@de it h3re, as you can see th&s leveeeeel is br&ken, CoRRRRRRRupted, Fr@ctu7ed. You: And im supposed to join it, well im not, so don't get your hopes up!");
       String[] newItems = {" ","Proceed into l3333333vel 1","Go through the front door","kill yourself"};
       game.setChoices(newItems);
@@ -441,7 +458,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "Backroomslvl1_Area1.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/Backroomslvl1_Area1.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: Oh wait I missed this part of level 1, well maybe its time I consume it, SO GET OUT");
       String[] newItems = {" ","Go forward","try to go back","kill yourself"};
       game.setChoices(newItems);
@@ -453,7 +470,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl4_3.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl4_3.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: I've had enough of you guests, maybe it's time I-\n \n \n The Overseer: He has too much power, YOU MUST STOP HIM");
       String[] newItems = {" ","Go farther down the hall","go back into l3v3l ONE","kill yourself"};
       game.setChoices(newItems);
@@ -466,7 +483,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl4_5.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl4_5.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Overseer: I built this place, to encase him, to prevent, to KILL him. But he outgrew this thick shell, and now has the ability to consume his prison and convert it into his home to destroy yours, and mine.");
       if(iA.haveItem("Scissors"))
       {
@@ -487,7 +504,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl4_4.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl4_4.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("You see a shadow, but no one is actually there, you are beginning to get scared, and the constant urge to kill yourself grows. \n \n \nThe Observer: You m#st not pr0ce33d f@rw4rd, 4 my p3ts w1ll k1ll yu");
       String[] newItems = {" ","YOU MUST DESTROY HIM, KEEP GOING","go back down this Dea- Hallway","kill yourself"};
       game.setChoices(newItems);
@@ -500,7 +517,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl4_6.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl4_6.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("There is something on the flo-. \n \n \nThe Overseer: grab that item, you will need it to kill my former apprentice");
       if(iA.haveItem("Strange Weapon"))
       {
@@ -521,7 +538,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl4_7.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl4_7.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("Unknown: Free us \n \n \nMore Unknown people: FREE US ALL PLEASE \n \n \nMary Joe: My baby wh3r3 is h% I w@nt &&&& m7 b1b7 BAAAAAAAAAAAAAAA\n \n \nYou: What is going on... why is everyone so damn loud");
       String[] newItems = {" ","Don't give up and push forward","Go back to the weapon","kill yourself"};
       game.setChoices(newItems);
@@ -534,7 +551,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl4_8.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl4_8.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Overseer: YES THERE IT IS, you will need a key to open it, and don't forget to have the weapon. This is where we will face our foe, and defeat him");
       if(iA.haveItem("Shadow Key"))
       {
@@ -566,7 +583,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl444_0.png", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl444_0.jpg", game.picWidth, game.HEIGHT, 0,22);
       
       if(iA.haveItem("Paper"))
       {
@@ -587,7 +604,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl444_2.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl444_2.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: There you are, your lucky the pets don't come here... they are quite freightened of me. \n \n \nYou: I will stop you, and I will defeat you... just as the Overseer said. \n \n \nThe Observer: Fool, he has no control over this place, and neither do you, so give up now and I will allow you safe passage");
       String[] newItems = {" ","Go on to level 4","Go back through the door"};
       game.setChoices(newItems);
@@ -599,7 +616,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "lvl444_4.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/lvl444_4.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Overseer: This is it my friend, I will not be able to influence the fight, I can only guide you. He will not attack as long as you do not threaten him");
       String[] newItems = {" ","Go where no other has gone","Go back through the door"};
       game.setChoices(newItems);
@@ -614,7 +631,7 @@ public class GameLevels {
       //playSFX("FinalFight.wav",5f);
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "The Observer_idle.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/The Observer_idle.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Observer: It is such an honour to meet you, somehow you have made it farther than anyone else. You should be proud, although I do not understand why your not. \n \nYou notice how fleshy it is, how large, powerful it is. You also notice jump pads to other side areas, maybe I could use them\n \n \nThe Observer: I can grant you passage back to your world, right where you last were just let me know, and you will be brought back\n \n \nThe Overseer: DO NOT ACCEPT I BROUGHT YOU HERE FOR A REASON, AND YOU MUST COMPLETE YOUR MISSION");
       if(iA.haveItem("Strange Weapon"))
       {
@@ -637,7 +654,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "control panel.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/control panel.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Overseer");
       if(iA.haveItem("Strange Weapon"))
       {
@@ -660,7 +677,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "control panelC.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/control panelC.jpg", game.picWidth, game.HEIGHT, 0,22);
       storyTextArea.setText("The Overseer");
       if(iA.haveItem("Strange Weapon"))
       {
@@ -685,7 +702,7 @@ public class GameLevels {
    {
       game.clearBuffer();
       Graphics2D b = game.buffer.createGraphics();
-      oW.addPicture(b, "control panelD.jpg", game.picWidth, game.HEIGHT, 0,22);
+      oW.addPicture(b, "levels/control panelD.jpg", game.picWidth, game.HEIGHT, 0,22);
       if(iA.haveItem("Strange Weapon"))
       {
          storyTextArea.setText("The Overseer: Shoot your large weapon at it from 2 angles, destroy the core to destroy him.");

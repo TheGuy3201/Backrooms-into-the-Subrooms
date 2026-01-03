@@ -41,8 +41,6 @@ public class AdventureGameConstructor extends JFrame implements ActionListener
 
    // Set up fonts for the picture area
    Font chillerFont = new Font("Chiller", Font.PLAIN, 48); 
-   //Font smallArialFont = new Font("Arial", Font.BOLD, 20); 
-   //Font largeArialFont = new Font("Arial", Font.BOLD, 40); 
    public Random rG = new Random();
    // GUI components that will need to be accessed from many methods
    public static JPanel interactionPanel;
@@ -195,7 +193,7 @@ public class AdventureGameConstructor extends JFrame implements ActionListener
       }
       catch(InterruptedException e)
       {
-         System.out.println("Problem painting the screen: \n");
+         // Interrupted while painting
       }
    }
 
@@ -215,9 +213,6 @@ public class AdventureGameConstructor extends JFrame implements ActionListener
       int answer = JOptionPane.showConfirmDialog(null,"Are you sure you want to give up your life for us?"); //The Icon Thing
       if (answer == 0) 
          System.exit(0);
-         
-      else if(answer >= 1)
-         System.out.println("Well thats cool to know you dont want to die(You selected No, or Cancel)");
    }
 
    @Override

@@ -15,11 +15,10 @@ public class AudioController {
    {
       try
       {
-         URL audioUrl = getClass().getResource("/resources/"+pathway);
+         URL audioUrl = getClass().getResource("/resources/sounds/"+pathway);
          if(audioUrl == null)
          {
-            System.out.println("Audio file not found: " + pathway);
-            System.out.println("Make sure audio file is in .wav format and path is specified properly.");
+            System.err.println("Audio file not found: " + pathway);
             return;
          }
          AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioUrl);
@@ -28,14 +27,10 @@ public class AudioController {
          FloatControl setVolume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
          setVolume.setValue(volume);
          clip.start();
-         
-            //clip.stop();
       }
-      catch(IOException | LineUnavailableException | UnsupportedAudioFileException e)
+      catch (UnsupportedAudioFileException | IOException | LineUnavailableException e)
       {
-         System.out.println("Run time error when adding audio file "+pathway);
-         System.out.println("Make sure audio file is in .wav format and path is specified properly. ");
-         e.printStackTrace();
+         System.err.println("Error playing sound: " + e.getMessage());
       }
    }
 }

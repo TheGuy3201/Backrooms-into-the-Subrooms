@@ -1,0 +1,159 @@
+{
+    "levels": [
+        {
+            "id": 0,
+            "name": "Level 0 - Entrance",
+            "filePath": "levels/Backroomslvl0.jpg"
+        },
+        {
+            "id": 1,
+            "name": "Level 0 - Hallway 1",
+            "filePath": "levels/Backroomslvl0hall1.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Level 0 - Hallway 2",
+            "filePath": "levels/backroomslvl0hall2.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Level 0 - Hallway 2.2",
+            "filePath": "levels/Backroomslvl0hall2.2.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Level 0 - Hallway 2.4",
+            "filePath": "levels/Backroomslvl0hall2.4.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Level 0 - Hallway 2.6",
+            "filePath": "levels/Backroomslvl0hall2.6.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Level 0 - Hallway 2.8",
+            "filePath": "levels/Backroomslvl0hall2.8.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Level 0 - Hallway 2.9",
+            "filePath": "levels/Backroomslvl0hall2.9.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Level 0 - Hallway 3",
+            "filePath": "levels/Backroomslvl0hall3.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Level 0 - Hallway 4",
+            "filePath": "levels/Backroomslvl0hall4.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Level 1 - Area 1",
+            "filePath": "levels/Backroomslvl1_Area1.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Level 2 - Entrance",
+            "filePath": "levels/Backroomslvl2_hall_ENT.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Level 2 - Hallway 1",
+            "filePath": "levels/Backroomslvl2_hall1.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Level 2 - Hallway 2",
+            "filePath": "levels/Backroomslvl2_hall2.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Level 2 - Sub Hallway 2",
+            "filePath": "levels/Backroomslvl2_subhall2.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Level 2 - Hallway 3",
+            "filePath": "levels/Backroomslvl2_hall3.jpg"
+        },
+        {
+            "id": 16,
+            "name": "Level 2 - Hallway 4",
+            "filePath": "levels/Backroomslvl2_hall4.jpg"
+        },
+        {
+            "id": 17,
+            "name": "Level 2 - Hallway 5",
+            "filePath": "levels/Backroomslvl2_hall5.jpg"
+        },
+        {
+            "id": 18,
+            "name": "Level 2 - Hallway 6",
+            "filePath": "levels/Backroomslvl2_hall6.jpg"
+        },
+        {
+            "id": 19,
+            "name": "Level 2 - Hallway 7",
+            "filePath": "levels/Backroomslvl2_hall7.jpg"
+        },
+        {
+            "id": 20,
+            "name": "Level 4 - Entrance",
+            "filePath": "levels/Backroomslvl4_ENT.jpg"
+        },
+        {
+            "id": 21,
+            "name": "Level 4 - Hallway 1",
+            "filePath": "levels/Backroomslvl4_hallway1.jpg"
+        },
+        {
+            "id": 22,
+            "name": "Level 4 - Area 3",
+            "filePath": "levels/lvl4_3.jpg"
+        },
+        {
+            "id": 23,
+            "name": "Level 4 - Area 4",
+            "filePath": "levels/lvl4_4.jpg"
+        },
+        {
+            "id": 24,
+            "name": "Level 4 - Area 5",
+            "filePath": "levels/lvl4_5.jpg"
+        },
+        {
+            "id": 25,
+            "name": "Level 4 - Area 6",
+            "filePath": "levels/lvl4_6.jpg"
+        },
+        {
+            "id": 26,
+            "name": "Level 4 - Area 7",
+            "filePath": "levels/lvl4_7.jpg"
+        },
+        {
+            "id": 27,
+            "name": "Level 4 - Area 8",
+            "filePath": "levels/lvl4_8.jpg"
+        },
+        {
+            "id": 28,
+            "name": "Level 444 - Room 0",
+            "filePath": "levels/lvl444_0.jpg"
+        },
+        {
+            "id": 29,
+            "name": "Level 444 - Room 2",
+            "filePath": "levels/lvl444_2.jpg"
+        },
+        {
+            "id": 30,
+            "name": "Level 444 - Room 4",
+            "filePath": "levels/lvl444_4.jpg"
+        }
+    ]
+}

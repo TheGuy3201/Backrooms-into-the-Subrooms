@@ -54,22 +54,18 @@ public class CreatureController
          if(cC.lvl444 == true)
          {
             if(randNum <= 18)
-               creatureAttack(b, "Abomination.png", 340, 480,"Abomination_audio.wav",11);
+               creatureAttack(b, "Abomination", 340, 480,"Abomination_audio.wav",11);
             else if(randNum > 19 && randNum < 32)
-               creatureAttack(b, "Observer Attack.jpg", 340, 480,"Abomination_audio.wav",9);
-            else
-               System.out.println("You are safe... for now");
+               creatureAttack(b, "Observer Attack", 340, 480,"Abomination_audio.wav",9);
          }
          else
          {
             if(randNum <= 10)
-               creatureAttack(b, "Abomination.png", 340, 480,"Abomination_audio.wav",13);
+               creatureAttack(b, "Abomination", 340, 480,"Abomination_audio.wav",13);
             else if(randNum > 69 && randNum < 82)
-               creatureAttack(b, "smiler.jfif", 340, 480,"ScreechSFX.wav",8);
+               creatureAttack(b, "smiler", 340, 480,"ScreechSFX.wav",8);
             else if(randNum > 83 && randNum < 91)
-               creatureAttack(b, "stalker.png", 340, 480,"Jumpscare_1.wav",8);
-            else
-               System.out.println("You are safe... for now");
+               creatureAttack(b, "stalker", 340, 480,"Jumpscare_1.wav",8);
          }
       }
       

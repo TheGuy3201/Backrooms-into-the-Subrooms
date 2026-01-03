@@ -85,7 +85,7 @@ public class ChoiceController implements ActionListener {
          if(selected.equals("Look for another way out"))
          {
             storyTextArea.setText("Good Luck with that...");
-            cC.creatureAttack(b, "stalker.png",300,300, "Jumpscare_1.wav", 8);
+            cC.creatureAttack(b, "enemies/stalker.jpg",300,300, "Jumpscare_1.wav", 8);
          }
          
          if(selected.equals("Grab the mini satelite dish") && iA.soundWeaponAvailable == true)
@@ -109,16 +109,16 @@ public class ChoiceController implements ActionListener {
             gL.peeOnFloor();
             
          if(selected.equals("Cut a large hole in wallpaper on far left pillar")||selected.equals("Cut a large hole in wallpaper on far right pillar"))
-            cC.creatureAttack(b, "smiler.jfif", (720/3), (610/3),"Jumpscare_1.wav",11);
+            cC.creatureAttack(b, "enemies/smiler.jpg", (720/3), (610/3),"Jumpscare_1.wav",11);
             
          if(selected.equals("Cut a large hole in wallpaper on mid right pillar"))
-            cC.creatureAttack(b, "zombie thing.jfif", (720/3), (610/3),"Jumpscare_1.wav", 6);
+            cC.creatureAttack(b, "enemies/zombie thing.jpg", (720/3), (610/3),"Jumpscare_1.wav", 6);
             
          if(selected.equals("Continue to Exit")||selected.equals("Cut a large hole in wallpaper on mid left pillar")) //lvl0 exit
             gL.level0_hallwayEXT();
             
          if(selected.equals("Cut a large hole in wallpaper on front left pillar")||selected.equals("Cut a large hole in wallpaper on front right pillar"))
-            cC.creatureAttack(b, "The Converted.jfif", (720/3), (610/3),"Jumpscare_1.wav", 28);
+            cC.creatureAttack(b, "enemies/The Converted.jpg", (720/3), (610/3),"Jumpscare_1.wav", 28);
             
          if(selected.equals("Go through it(you wont be able to return back here)")||selected.equals("Go back to where you teleported")||selected.equals("Go down right door(level 2)"))
             gL.level2_hallwayENT();
@@ -154,7 +154,7 @@ public class ChoiceController implements ActionListener {
             iA.usedItem("Scissors","You broke your scissors, and still couldn't manage to break the wire");
             
          if(selected.equals("Try to go through the exit door"))
-            cC.creatureAttack(b, "bone thief.jfif",300,300, "BoneThief_audio.wav", 20);
+            cC.creatureAttack(b, "enemies/bone thief.jpg",300,300, "BoneThief_audio.wav", 20);
             
          if(selected.equals("Break the wire with the bolt cutters"))
             iA.takeItem("Shadow Key");
@@ -188,7 +188,7 @@ public class ChoiceController implements ActionListener {
             gL.level4_ENT();
             
          if(selected.equals("Go down the door behind you"))
-            cC.creatureAttack(b, "Abomination.png", 340, 480,"Abomination_audio.wav",40);
+            cC.creatureAttack(b, "enemies/Abomination.jpg", 340, 480,"Abomination_audio.wav",40);
          
          if(selected.equals("Proceed into FR33D0M"))
             gL.level4_hallway1();

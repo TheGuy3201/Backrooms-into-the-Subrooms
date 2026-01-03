@@ -1,0 +1,25 @@
+{
+    "monsters": [
+        {
+            "name": "Abomination",
+            "imagePath": "resources/abomination.jpg",
+            "soundEffect": "resources/Abomination_audio.wav"
+        },
+        {
+            "name": "Observer Attack",
+            "imagePath": "resources/Observer Attack.jpg",
+            "soundEffect": "resources/Abomination_audio.wav"
+        },        
+        {
+            "name": "smiler",
+            "imagePath": "resources/smiler.jpg",
+            "soundEffect": "resources/ScreechSFX.wav"
+        },
+        {
+            "name": "stalker",
+            "imagePath": "resources/stalker.jpg",
+            "soundEffect": "resources/Jumpscare_1.wav"
+        }
+
+    ]
+}
